@@ -35,10 +35,10 @@ public class LibraryBookBorrowingSystem
 
 
       chooseOption(books, 1);    //show available
-      chooseOption(books, 2);       //borrow
-      chooseOption(books, 3);       //return
-      chooseOption(books, 4);       //exit
-      chooseOption(books, 5);       //invalid input
+      chooseOption(books, 2);    //borrow
+      chooseOption(books, 3);    //return
+      chooseOption(books, 4);    //exit
+      chooseOption(books, 5);    //invalid input
 
       //borrow a book that doesn't exist in the library
       borrow("Wuthering Heights", books);
@@ -101,10 +101,8 @@ public class LibraryBookBorrowingSystem
     private static void printReturnMessage(String bookName)
     {
         System.out.print("Enter the name of the book you want to return: ");
-
-        String nameOfBook = "Pride and Prejudice";
-        System.out.println(nameOfBook);
-        System.out.println("You have returned: " + nameOfBook);
+        System.out.println(bookName);
+        System.out.println("You have returned: " + bookName);
     }
     
     private static void printGoodBye()
@@ -165,8 +163,7 @@ public class LibraryBookBorrowingSystem
 
     private static void removeBook(ArrayList<String> books, String bookToRemove)
     {
-        String nameOfBook = bookToRemove;
-        books.remove(String.valueOf(nameOfBook));  // remove the first occurrence of this book
+        books.remove(bookToRemove);
     }
 
     private static void returnBook (ArrayList<String> books, String bookToReturn)
