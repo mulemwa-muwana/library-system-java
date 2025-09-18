@@ -30,6 +30,9 @@ public class LibraryBookBorrowingSystem
       books.add("The Hobbit");
       books.add("Pride and Prejudice");
       books.add("To Kill a Mockingbird");
+      books.add("Pride and Prejudice");
+      books.add("Pride and Prejudice");
+
 
       chooseOption(books, 1);    //show available
       chooseOption(books, 2);       //borrow
@@ -92,7 +95,6 @@ public class LibraryBookBorrowingSystem
 
     private static void printNotAvailable(String unavailableBook)
     {
-        String inputBook = unavailableBook;
         System.out.println("Sorry, " + unavailableBook + " is not available");
     }
 
@@ -150,13 +152,11 @@ public class LibraryBookBorrowingSystem
         System.out.println("");
         String bookName = inputName;
 
-        for(int index = 0; index < books.size(); index++)
+       for(int index = 0; index < books.size(); index++)
         {
             if(bookName.equals(books.get(index)))
             {
                 System.out.println("Found it!");
-                removeBook(books, bookName);
-                index--;
                 return true;
             }
         }
