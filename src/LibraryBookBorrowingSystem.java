@@ -47,34 +47,35 @@ public class LibraryBookBorrowingSystem
 
     private static void chooseOption(ArrayList<String> books, int userOption)
     {
-        int option = userOption;
-        if(option == 1)
+        switch(userOption)
         {
-            System.out.println(" " + option + "\n" + "");
+            case 1:
+            System.out.println(" " + userOption + "\n" + "");
             showAvailable(books);
             printMenuAndAskForOption();
-        }
-        else if(option == 2)
-        {
-          System.out.println(" " + option + "\n" + "");
-          borrow("Pride and Prejudice", books);
-          printMenuAndAskForOption();
-        }
-        else if(option == 3)
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            case 2:
+            System.out.println(" " + userOption + "\n" + "");
+            borrow("Pride and Prejudice", books);
+            printMenuAndAskForOption();
+            break;
+
+            case 3:
+            System.out.println(" " + userOption + "\n" + "");
             returnBook(books, "Pride and Prejudice");
             printMenuAndAskForOption();
-        }
-        else if(option == 4)
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            case 4:
+            System.out.println(" " + userOption + "\n" + "");
             printGoodBye();
-        }
-        else
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            default:
+            System.out.println(" " + userOption + "\n" + "");
             System.out.println("Please pick an option from 1 - 4");
+
         }
     }
 
