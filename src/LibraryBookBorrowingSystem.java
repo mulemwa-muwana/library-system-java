@@ -30,12 +30,15 @@ public class LibraryBookBorrowingSystem
       books.add("The Hobbit");
       books.add("Pride and Prejudice");
       books.add("To Kill a Mockingbird");
+      books.add("Pride and Prejudice");
+      books.add("Pride and Prejudice");
+
 
       chooseOption(books, 1);    //show available
-      chooseOption(books, 2);       //borrow
-      chooseOption(books, 3);       //return
-      chooseOption(books, 4);       //exit
-      chooseOption(books, 5);       //invalid input
+      chooseOption(books, 2);    //borrow
+      chooseOption(books, 3);    //return
+      chooseOption(books, 4);    //exit
+      chooseOption(books, 5);    //invalid input
 
       //borrow a book that doesn't exist in the library
       borrow("Wuthering Heights", books);
@@ -44,34 +47,35 @@ public class LibraryBookBorrowingSystem
 
     private static void chooseOption(ArrayList<String> books, int userOption)
     {
-        int option = userOption;
-        if(option == 1)
+        switch(userOption)
         {
-            System.out.println(" " + option + "\n" + "");
+            case 1:
+            System.out.println(" " + userOption + "\n" + "");
             showAvailable(books);
             printMenuAndAskForOption();
-        }
-        else if(option == 2)
-        {
-          System.out.println(" " + option + "\n" + "");
-          borrow("Pride and Prejudice", books);
-          printMenuAndAskForOption();
-        }
-        else if(option == 3)
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            case 2:
+            System.out.println(" " + userOption + "\n" + "");
+            borrow("Pride and Prejudice", books);
+            printMenuAndAskForOption();
+            break;
+
+            case 3:
+            System.out.println(" " + userOption + "\n" + "");
             returnBook(books, "Pride and Prejudice");
             printMenuAndAskForOption();
-        }
-        else if(option == 4)
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            case 4:
+            System.out.println(" " + userOption + "\n" + "");
             printGoodBye();
-        }
-        else
-        {
-            System.out.println(" " + option + "\n" + "");
+            break;
+
+            default:
+            System.out.println(" " + userOption + "\n" + "");
             System.out.println("Please pick an option from 1 - 4");
+
         }
     }
 
@@ -92,17 +96,14 @@ public class LibraryBookBorrowingSystem
 
     private static void printNotAvailable(String unavailableBook)
     {
-        String inputBook = unavailableBook;
         System.out.println("Sorry, " + unavailableBook + " is not available");
     }
 
     private static void printReturnMessage(String bookName)
     {
         System.out.print("Enter the name of the book you want to return: ");
-
-        String nameOfBook = "Pride and Prejudice";
-        System.out.println(nameOfBook);
-        System.out.println("You have returned: " + nameOfBook);
+        System.out.println(bookName);
+        System.out.println("You have returned: " + bookName);
     }
     
     private static void printGoodBye()
@@ -150,13 +151,11 @@ public class LibraryBookBorrowingSystem
         System.out.println("");
         String bookName = inputName;
 
-        for(int index = 0; index < books.size(); index++)
+       for(int index = 0; index < books.size(); index++)
         {
             if(bookName.equals(books.get(index)))
             {
                 System.out.println("Found it!");
-                removeBook(books, bookName);
-                index--;
                 return true;
             }
         }
@@ -165,8 +164,7 @@ public class LibraryBookBorrowingSystem
 
     private static void removeBook(ArrayList<String> books, String bookToRemove)
     {
-        String nameOfBook = bookToRemove;
-        books.remove(String.valueOf(nameOfBook));  // remove the first occurrence of this book
+        books.remove(bookToRemove);
     }
 
     private static void returnBook (ArrayList<String> books, String bookToReturn)
